@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.yuliya.demotestapp.ui.activities.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextUserId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/user_id"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="27dp"/>
 
-</android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editTextDepth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:ems="10"
+        android:hint="@string/depth"
+        android:inputType="number"
+        android:layout_below="@+id/editTextUserId"
+        android:layout_alignStart="@+id/editTextUserId"/>
+
+    <Button
+        android:id="@+id/ButtonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_button"
+        android:onClick="onSearchButtonClick"
+        tools:layout_editor_absoluteY="88dp"
+        tools:layout_editor_absoluteX="16dp"
+        android:layout_marginTop="103dp"
+        android:layout_below="@+id/editTextDepth"
+        android:layout_alignStart="@+id/editTextDepth"/>
+
+
+</RelativeLayout>
