@@ -20,7 +20,7 @@ public class MyListActivity extends ListActivity {
 
     final String[] catNamesArray = new String[]{
             "Рыжик", "Барсик", "Мурзик", "Мурка", "Васька", "Томасина", "Бобик", "Кристина", "Пушок",
-            "Дымка", "Кузя", "Китти", "Барбос", "Масяня", "Симба", "Соллер"
+            "Дымка", "Кузя", "Китти", "Барбос", "Масяня", "Симба", "Соллер", "Кисуню"
     };
 
 private ArrayAdapter<String> mAdapter;
