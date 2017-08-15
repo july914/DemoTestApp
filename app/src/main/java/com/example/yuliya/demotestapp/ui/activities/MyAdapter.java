@@ -13,9 +13,9 @@ import com.example.yuliya.demotestapp.R;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private String[] mDataset;
+    private Cat[] mDataset;
 
-    public MyAdapter(String[] myDataset) {
+    public MyAdapter(Cat[] myDataset) {
         mDataset = myDataset;
     }
 
@@ -51,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.catTextView.setText(mDataset[position]);
+        holder.catTextView.setText(mDataset[position].name);
         holder.catNumber.setText(String.valueOf(position + 1));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

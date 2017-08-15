@@ -19,12 +19,31 @@ import android.widget.Toast;
 
 import com.example.yuliya.demotestapp.R;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+class Cat{
+    public String name;
+
+    public Cat(String name) {
+        this.name = name;
+    }
+
+}
+
 public class MyListActivity extends AppCompatActivity {
 
-    final String[] catNamesArray = new String[]{
-            "Рыжик", "Барсик", "Мурзик", "Мурка", "Васька", "Томасина", "Бобик", "Кристина", "Пушок",
-            "Дымка", "Кузя", "Китти", "Масяня", "Симба", "Соллер", "Кисуню"
+
+    final Cat[] catsArray = new Cat[]{
+    new Cat("Манюник"),new Cat("Анфиса"),new Cat("Баксик"),new Cat("Пуся"),new Cat("Дуся"),
+            new Cat("Гвиневра"),new Cat("Кузя"),new Cat("Березкин"), new Cat("Солер"),new Cat("Кисуню"),
     };
+
+//    final String[] catNamesArray = new String[]{
+//            "Манюник", "Анфиса", "Баксик", "Симона", "Бешамель", "Томасина", "Бобик", "Кристина", "Пуся",
+//            "Дуся", "Гвиневра", "Кузя", "Березкин", "Симба", "Солер", "Кисуню"
+//    };
+
 
 //    private ArrayAdapter<String> mAdapter;
 
@@ -53,7 +72,8 @@ public class MyListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(catNamesArray);
+
+        mAdapter = new MyAdapter(catsArray);
         mRecyclerView.setAdapter(mAdapter);
     }
     View.OnClickListener viewClickListener = new View.OnClickListener(){
