@@ -1,5 +1,6 @@
 package com.example.yuliya.demotestapp.ui.activities;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,15 +19,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yuliya.demotestapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 class Cat{
     public String name;
+//    public Image photo;
 
     public Cat(String name) {
         this.name = name;
+//        this.photo = photo;
     }
 
 }
@@ -35,8 +39,16 @@ public class MyListActivity extends AppCompatActivity {
 
 
     final Cat[] catsArray = new Cat[]{
-    new Cat("Манюник"),new Cat("Анфиса"),new Cat("Баксик"),new Cat("Пуся"),new Cat("Дуся"),
-            new Cat("Гвиневра"),new Cat("Кузя"),new Cat("Березкин"), new Cat("Солер"),new Cat("Кисуню"),
+    new Cat("Манюник"),
+            new Cat("Анфиса"),
+            new Cat("Баксик"),
+            new Cat("Пуся"),
+            new Cat("Дуся"),
+            new Cat("Гвиневра"),
+            new Cat("Кузя"),
+            new Cat("Березкин"),
+            new Cat("Солер"),
+            new Cat("Кисуню"),
     };
 
 //    final String[] catNamesArray = new String[]{

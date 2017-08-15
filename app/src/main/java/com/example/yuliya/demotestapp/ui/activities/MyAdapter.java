@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yuliya.demotestapp.R;
+import com.squareup.picasso.Picasso;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -38,6 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public View mTextView;
         public TextView catTextView;
         public TextView catNumber;
+        public ImageView catImage;
 
         public ViewHolder(View viewCell) {
             super(viewCell);
@@ -46,6 +49,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
             catTextView = (TextView)mTextView.findViewById(R.id.catTextView);
             catNumber = (TextView)mTextView.findViewById(R.id.catNumber);
+            catImage = (ImageView)mTextView.findViewById(R.id.imageView2);
+            Picasso.with(viewCell.getContext()).load(R.drawable.androidcat).fit().into(catImage);
         }
     }
 
