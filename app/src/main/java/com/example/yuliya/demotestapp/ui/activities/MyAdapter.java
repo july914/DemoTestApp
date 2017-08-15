@@ -1,5 +1,6 @@
 package com.example.yuliya.demotestapp.ui.activities;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,15 +50,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.catTextView.setText(mDataset[position]);
         holder.catNumber.setText(String.valueOf(position + 1));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "You have chosen " + String.valueOf(position + 1),
-                        Toast.LENGTH_SHORT).show();
+                final Intent intent = new Intent(v.getContext(), UserDetailsActivity.class);
+                intent.putExtra("Cat Name", holder.catTextView.getText().toString());
+                intent.putExtra("Cat Number", holder.catNumber.getText().toString());
+                v.getContext().startActivity(intent);
             }
         });
     }
