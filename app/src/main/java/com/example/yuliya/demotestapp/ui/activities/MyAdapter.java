@@ -18,6 +18,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private Cat[] mDataset;
 
+
     public MyAdapter(Cat[] myDataset) {
         mDataset = myDataset;
     }

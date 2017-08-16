@@ -51,13 +51,6 @@ public class MyListActivity extends AppCompatActivity {
             new Cat("Кисуню","http://img-fotki.yandex.ru/get/3509/inmira.1c/0_384de_88576da4_orig.png"),
     };
 
-//    final String[] catNamesArray = new String[]{
-//            "Манюник", "Анфиса", "Баксик", "Симона", "Бешамель", "Томасина", "Бобик", "Кристина", "Пуся",
-//            "Дуся", "Гвиневра", "Кузя", "Березкин", "Симба", "Солер", "Кисуню"
-//    };
-
-
-//    private ArrayAdapter<String> mAdapter;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -70,8 +63,6 @@ public class MyListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         button.setOnClickListener(viewClickListener);
 
-//        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, catNamesArray);
-//        setListAdapter(mAdapter);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -119,12 +110,6 @@ public class MyListActivity extends AppCompatActivity {
         popupMenu.show();
 
     }
-
-//    @Override
-//    protected void onListItemClick(ListView l, View v, int position, long id){
-//        super.onListItemClick(l, v, position, id);
-//        Toast.makeText(getApplicationContext(), "You have chosen "+ l.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
-//    }
 
 
 }

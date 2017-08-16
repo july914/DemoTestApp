@@ -44,5 +44,16 @@
         android:layout_below="@+id/editTextDepth"
         android:layout_alignStart="@+id/editTextDepth"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ButtonSearch"
+        android:layout_below="@+id/ButtonSearch"
+        android:layout_marginTop="46dp"
+        android:text="Read some jokes"
+        android:onClick="onJokeButtonClick"
+        android:layout_alignEnd="@+id/ButtonSearch"/>
+
 
 </RelativeLayout>
