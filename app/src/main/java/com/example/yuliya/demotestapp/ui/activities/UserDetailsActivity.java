@@ -21,6 +21,7 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         String catname=getIntent().getStringExtra("Cat Name");
         String catnumber=getIntent().getStringExtra("Cat Number");
+        String catphoto=getIntent().getStringExtra("Cat Photo");
 
         TextView catnameTextView = (TextView)findViewById(R.id.CatNametextView);
         catnameTextView.setText(catname);
@@ -29,7 +30,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         catnumberTextView.setText(catnumber);
 
         ImageView catImageView = (ImageView)findViewById(R.id.imageView);
-        Picasso.with(this).load("http://pngimg.com/uploads/cat/cat_PNG134.png").fit().into(catImageView);
+        Picasso.with(this).load(catphoto).fit().into(catImageView);
 
     }
 

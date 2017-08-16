@@ -40,15 +40,15 @@ public class MyListActivity extends AppCompatActivity {
 
     final Cat[] catsArray = new Cat[]{
     new Cat("Манюник","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Анфиса","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Баксик","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Пуся","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Дуся","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Гвиневра","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Кузя","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Березкин","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Солер","http://pngimg.com/uploads/cat/cat_PNG134.png"),
-            new Cat("Кисуню","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Анфиса","https://avatanplus.com/files/resources/mid/57c4a33e589c2156d81dab9b.png"),
+            new Cat("Баксик","http://www.mekong.su/images/mekong_l.png"),
+            new Cat("Пуся(Пульхерия)","http://s54.radikal.ru/i143/1007/2c/9f3b406312a5.png"),
+            new Cat("Дуся(Дульсинея)","http://s54.radikal.ru/i143/1007/2c/9f3b406312a5.png"),
+            new Cat("Гвиневра","http://alfaday.net/uploads/posts/2013-03/1363627354_1048f2a2.jpg"),
+            new Cat("Кузя","http://s46.radikal.ru/i113/1105/28/bc6a0a2c09a9.png"),
+            new Cat("Березкин","https://kitten.whiskas.ru/images/imgimg8.png"),
+            new Cat("Солер","http://izhevsk.ru/forums/icons/forum_pictures/004765/4765619.png"),
+            new Cat("Кисуню","http://img-fotki.yandex.ru/get/3509/inmira.1c/0_384de_88576da4_orig.png"),
     };
 
 //    final String[] catNamesArray = new String[]{

@@ -61,6 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.catNumber.setText(String.valueOf(position + 1));
         Context context = holder.catImage.getContext();
         Picasso.with(context).load(mDataset[position].photo).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
+        holder.catImage.setTag(mDataset[position].photo);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 final Intent intent = new Intent(v.getContext(), UserDetailsActivity.class);
                 intent.putExtra("Cat Name", holder.catTextView.getText().toString());
                 intent.putExtra("Cat Number", holder.catNumber.getText().toString());
+                intent.putExtra("Cat Photo", String.valueOf(holder.catImage.getTag()).toString());
                 v.getContext().startActivity(intent);
             }
         });
