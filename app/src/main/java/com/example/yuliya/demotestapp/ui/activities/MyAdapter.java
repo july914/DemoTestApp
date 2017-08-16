@@ -1,5 +1,6 @@
 package com.example.yuliya.demotestapp.ui.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -58,6 +59,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.catTextView.setText(mDataset[position].name);
         holder.catNumber.setText(String.valueOf(position + 1));
+        Context context = holder.catImage.getContext();
+        Picasso.with(context).load(mDataset[position].photo).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

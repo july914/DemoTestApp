@@ -26,11 +26,11 @@ import java.util.Arrays;
 
 class Cat{
     public String name;
-//    public Image photo;
+    public String photo;
 
-    public Cat(String name) {
+    public Cat(String name, String photo) {
         this.name = name;
-//        this.photo = photo;
+        this.photo = photo;
     }
 
 }
@@ -39,16 +39,16 @@ public class MyListActivity extends AppCompatActivity {
 
 
     final Cat[] catsArray = new Cat[]{
-    new Cat("Манюник"),
-            new Cat("Анфиса"),
-            new Cat("Баксик"),
-            new Cat("Пуся"),
-            new Cat("Дуся"),
-            new Cat("Гвиневра"),
-            new Cat("Кузя"),
-            new Cat("Березкин"),
-            new Cat("Солер"),
-            new Cat("Кисуню"),
+    new Cat("Манюник","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Анфиса","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Баксик","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Пуся","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Дуся","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Гвиневра","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Кузя","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Березкин","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Солер","http://pngimg.com/uploads/cat/cat_PNG134.png"),
+            new Cat("Кисуню","http://pngimg.com/uploads/cat/cat_PNG134.png"),
     };
 
 //    final String[] catNamesArray = new String[]{
