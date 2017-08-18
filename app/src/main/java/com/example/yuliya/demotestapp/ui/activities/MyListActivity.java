@@ -24,17 +24,6 @@ import com.squareup.picasso.Picasso;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-class Cat{
-    public String name;
-    public String photo;
-
-    public Cat(String name, String photo) {
-        this.name = name;
-        this.photo = photo;
-    }
-
-}
-
 public class MyListActivity extends AppCompatActivity {
 
 
