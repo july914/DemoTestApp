@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.yuliya.demotestapp.R;
+import com.example.yuliya.demotestapp.Models.Cat;
 import com.squareup.picasso.Picasso;
 
 
