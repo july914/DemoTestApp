@@ -1,28 +1,29 @@
 package com.example.yuliya.demotestapp.ui.activities;
 
-import android.media.Image;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 import android.view.MenuItem;
 import android.view.View;
-import android.app.ListActivity;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import com.example.yuliya.demotestapp.Controllers.VKController;
+import com.example.yuliya.demotestapp.Models.UserModel;
 import com.example.yuliya.demotestapp.R;
-import com.squareup.picasso.Picasso;
+import com.example.yuliya.demotestapp.Models.Cat;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.List;
 
 public class MyListActivity extends AppCompatActivity {
 
@@ -41,11 +42,50 @@ public class MyListActivity extends AppCompatActivity {
     };
 
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView recyclerView;
+    List<UserModel> posts;
 
     @Override
+        protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mylist);
+
+        posts = new ArrayList<>();
+
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        MyAdapter adapter = new MyAdapter(posts);
+        recyclerView.setAdapter(adapter);
+
+        /* Response response = VKController.getApi().getData("bash", 50).execute();
+        * Call<List<UserModel>> id = service.UsersList("userID")*/
+
+        /*try{
+            Response response = VKController.getApi().getData("38593660","photo_100").execute();
+        } catch (IOException e){
+            e.printStackTrace();
+        }*/
+
+        VKController.getApi().getData("38593660","photo_100").enqueue(new  Callback<List<UserModel>>(){
+            @Override
+            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response){
+                posts.addAll(response.body());
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+            @Override
+            public void onFailure(Call<List<UserModel>> call, Throwable t){
+                Toast.makeText(MyListActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+
+   /* @Override
     protected void onCreate(Bundle savedInstanceState){
         setContentView(R.layout.activity_mylist);
         Button button = (Button)findViewById(R.id.buttonMenu);
@@ -67,7 +107,7 @@ public class MyListActivity extends AppCompatActivity {
 
         mAdapter = new MyAdapter(catsArray);
         mRecyclerView.setAdapter(mAdapter);
-    }
+    }*/
     View.OnClickListener viewClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View v){

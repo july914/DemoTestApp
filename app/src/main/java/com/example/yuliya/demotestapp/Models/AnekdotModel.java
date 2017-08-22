@@ -1,4 +1,4 @@
-package com.example.yuliya.demotestapp.ui.activities;
+package com.example.yuliya.demotestapp.Models;
 
         import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;

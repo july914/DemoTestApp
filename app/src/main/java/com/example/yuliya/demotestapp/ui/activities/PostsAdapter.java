@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import com.example.yuliya.demotestapp.R;
-import com.example.yuliya.demotestapp.ui.activities.AnekdotModel;
+import com.example.yuliya.demotestapp.Models.AnekdotModel;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 

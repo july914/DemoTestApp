@@ -1,9 +1,9 @@
-package com.example.yuliya.demotestapp.ui.activities;
+package com.example.yuliya.demotestapp.Interfaces;
 
 
 import java.util.List;
 
-import com.example.yuliya.demotestapp.ui.activities.AnekdotModel;
+import com.example.yuliya.demotestapp.Models.AnekdotModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
