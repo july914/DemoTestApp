@@ -21,27 +21,46 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<UserModel> posts;
+    private List<UserModel> users;
 
 
-    public MyAdapter(List<UserModel> posts) {
-        this.posts = posts;
+    public MyAdapter(List<UserModel> users) {
+        this.users = users;
     }
 
-    @Override
-    public int getItemCount() {
-        if (posts == null)
-            return 0;
-        return posts.size();
-    }
 
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_text_view, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
+    }
+    @Override
+    public void onBindViewHolder(final ViewHolder holder,int position) {
+        UserModel user = users.get(position);
+        Context context = holder.catImage.getContext();
+        holder.FirstName.setText(user.getFirstName());
+        holder.LastName.setText(user.getLastName());
+        Picasso.with(context).load(user.getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
+        holder.catImage.setTag(user.getPhoto100());
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View v){
+                final Intent intent = new Intent(v.getContext(), UserDetailsActivity.class);
+                intent.putExtra("Cat Name", holder.FirstName.getText().toString());
+                intent.putExtra("Cat Number", holder.LastName.getText().toString());
+                intent.putExtra("Cat Photo", String.valueOf(holder.catImage.getTag()).toString());
+                v.getContext().startActivity(intent);
+            }
+        });
+    }
+    @Override
+    public int getItemCount() {
+        if (users == null)
+            return 0;
+        return users.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -63,27 +82,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
-        UserModel post = posts.get(position);
-        Context context = holder.catImage.getContext();
-        holder.FirstName.setText(post.getFirstName());
-        holder.LastName.setText(post.getLastName());
-        Picasso.with(context).load(post.getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
-        holder.catImage.setTag(post.getPhoto100());
-        holder.itemView.setOnClickListener(new View.OnClickListener()
 
-        {
-            @Override
-            public void onClick (View v){
-                final Intent intent = new Intent(v.getContext(), UserDetailsActivity.class);
-                intent.putExtra("Cat Name", holder.FirstName.getText().toString());
-                intent.putExtra("Cat Number", holder.LastName.getText().toString());
-                intent.putExtra("Cat Photo", String.valueOf(holder.catImage.getTag()).toString());
-                v.getContext().startActivity(intent);
-            }
-        });
-    }
 
        /* holder.catTextView.setText(mDataset[position].name);
         holder.catNumber.setText(String.valueOf(position + 1));

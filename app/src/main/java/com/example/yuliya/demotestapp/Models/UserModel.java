@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class UserModel {
-    @SerializedName("id")
+    @SerializedName("uid")
     @Expose
     private Integer uid;
     @SerializedName("first_name")
@@ -17,22 +17,19 @@ public class UserModel {
     @SerializedName("last_name")
     @Expose
     private String lastName;
-    @SerializedName("bdate")
-    @Expose
-    private String bdate;
     @SerializedName("photo_100")
     @Expose
     private String photo100;
-    @SerializedName("hidden")
+    @SerializedName("user_id")
     @Expose
-    private Integer hidden;
+    private Integer userId;
 
-    public Integer getId() {
+    public Integer getUid() {
         return uid;
     }
 
-    public void setId(Integer id) {
-        this.uid = id;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public String getFirstName() {
@@ -51,14 +48,6 @@ public class UserModel {
         this.lastName = lastName;
     }
 
-    public String getBdate() {
-        return bdate;
-    }
-
-    public void setBdate(String bdate) {
-        this.bdate = bdate;
-    }
-
     public String getPhoto100() {
         return photo100;
     }
@@ -67,11 +56,11 @@ public class UserModel {
         this.photo100 = photo100;
     }
 
-    public Integer getHidden() {
-        return hidden;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setHidden(Integer hidden) {
-        this.hidden = hidden;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

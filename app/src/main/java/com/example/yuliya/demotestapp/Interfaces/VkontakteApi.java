@@ -13,7 +13,7 @@ import com.example.yuliya.demotestapp.Models.UserModel;
 
 public interface VkontakteApi {
 
-    @GET("/api.vk.com/method/friends.get")
+    @GET("/method/friends.get")
     Call<List<UserModel>> getData(@Query("user_id") String resourceID, @Query("fields") String photo);
 
 }

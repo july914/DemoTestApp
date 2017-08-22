@@ -43,20 +43,20 @@ public class MyListActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-    List<UserModel> posts;
+    List<UserModel> users;
 
     @Override
         protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mylist);
 
-        posts = new ArrayList<>();
+        users = new ArrayList<>();
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        MyAdapter adapter = new MyAdapter(posts);
+        MyAdapter adapter = new MyAdapter(users);
         recyclerView.setAdapter(adapter);
 
         /* Response response = VKController.getApi().getData("bash", 50).execute();
@@ -71,7 +71,7 @@ public class MyListActivity extends AppCompatActivity {
         VKController.getApi().getData("38593660","photo_100").enqueue(new  Callback<List<UserModel>>(){
             @Override
             public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response){
-                posts.addAll(response.body());
+                users.addAll(response.body());
                 recyclerView.getAdapter().notifyDataSetChanged();
             }
             @Override
