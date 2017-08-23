@@ -2,6 +2,7 @@ package com.example.yuliya.demotestapp.Controllers;
 
 import android.app.Application;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import com.example.yuliya.demotestapp.Interfaces.VkontakteApi;
@@ -22,10 +23,12 @@ public class VKController extends Application{
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.vk.com/method/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(new OkHttpClient.Builder().build())
                 .build();
+
         vkontakteApi = retrofit.create(VkontakteApi.class);
     }
-    public static VkontakteApi getApi(){
+    public static VkontakteApi getVKApi(){
         return vkontakteApi;
     }
 }

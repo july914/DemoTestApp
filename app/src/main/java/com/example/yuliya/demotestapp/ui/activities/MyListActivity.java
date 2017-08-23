@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import com.example.yuliya.demotestapp.Controllers.VKController;
-import com.example.yuliya.demotestapp.Models.UserModel;
+import com.example.yuliya.demotestapp.Models.VKResponse;
 import com.example.yuliya.demotestapp.R;
 import com.example.yuliya.demotestapp.Models.Cat;
 
@@ -43,12 +43,13 @@ public class MyListActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-    List<UserModel> users;
+    List<VKResponse> users;
 
     @Override
         protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mylist);
+
 
         users = new ArrayList<>();
 
@@ -59,26 +60,28 @@ public class MyListActivity extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter(users);
         recyclerView.setAdapter(adapter);
 
-        /* Response response = VKController.getApi().getData("bash", 50).execute();
-        * Call<List<UserModel>> id = service.UsersList("userID")*/
 
         /*try{
-            Response response = VKController.getApi().getData("38593660","photo_100").execute();
+            com.example.yuliya.demotestapp.Models.Response response = VKController.getVKApi().getVKData("38593660","photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68").execute();
         } catch (IOException e){
             e.printStackTrace();
         }*/
 
-        VKController.getApi().getData("38593660","photo_100").enqueue(new  Callback<List<UserModel>>(){
+            VKController
+                    .getVKApi()
+                    .getVKData("38593660","photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68")
+                    .enqueue(new  Callback<List<VKResponse>>(){
             @Override
-            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response){
+            public void onResponse(Call<List<VKResponse>> call, Response<List<VKResponse>> response){
                 users.addAll(response.body());
                 recyclerView.getAdapter().notifyDataSetChanged();
             }
             @Override
-            public void onFailure(Call<List<UserModel>> call, Throwable t){
+            public void onFailure(Call<List<VKResponse>> call, Throwable t){
                 Toast.makeText(MyListActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
 

@@ -4,13 +4,13 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by yuliya on 21.08.17.
+ * Created by yuliya on 23.08.17.
  */
+public class Item {
 
-public class UserModel {
-    @SerializedName("uid")
+    @SerializedName("id")
     @Expose
-    private Integer uid;
+    private Integer id;
     @SerializedName("first_name")
     @Expose
     private String firstName;
@@ -20,16 +20,19 @@ public class UserModel {
     @SerializedName("photo_100")
     @Expose
     private String photo100;
-    @SerializedName("user_id")
+    @SerializedName("hidden")
     @Expose
-    private Integer userId;
+    private Integer hidden;
+    @SerializedName("deactivated")
+    @Expose
+    private String deactivated;
 
-    public Integer getUid() {
-        return uid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -56,11 +59,20 @@ public class UserModel {
         this.photo100 = photo100;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getHidden() {
+        return hidden;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setHidden(Integer hidden) {
+        this.hidden = hidden;
     }
+
+    public String getDeactivated() {
+        return deactivated;
+    }
+
+    public void setDeactivated(String deactivated) {
+        this.deactivated = deactivated;
+    }
+
 }
