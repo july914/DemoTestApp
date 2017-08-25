@@ -5,12 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +21,6 @@ import com.example.yuliya.demotestapp.Controllers.VKController;
 import com.example.yuliya.demotestapp.Models.VKResponse;
 import com.example.yuliya.demotestapp.R;
 import com.example.yuliya.demotestapp.Models.Cat;
-
-import java.util.List;
 
 public class MyListActivity extends AppCompatActivity {
 
@@ -43,7 +40,7 @@ public class MyListActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-    List<VKResponse> users;
+
 
     @Override
         protected void onCreate(Bundle savedInstanceState){
@@ -51,14 +48,11 @@ public class MyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mylist);
 
 
-        users = new ArrayList<>();
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        MyAdapter adapter = new MyAdapter(users);
-        recyclerView.setAdapter(adapter);
 
 
         /*try{
@@ -67,22 +61,24 @@ public class MyListActivity extends AppCompatActivity {
             e.printStackTrace();
         }*/
 
+
             VKController
                     .getVKApi()
-                    .getVKData("38593660","photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68")
-                    .enqueue(new  Callback<List<VKResponse>>(){
+                    .VkontakteApi("38593660","photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68")
+                    .enqueue(new Callback<VKResponse>(){
             @Override
-            public void onResponse(Call<List<VKResponse>> call, Response<List<VKResponse>> response){
-                users.addAll(response.body());
-                recyclerView.getAdapter().notifyDataSetChanged();
+            public void onResponse(Call<VKResponse> call, Response<VKResponse> response){
+                ArrayList<VKResponse.Item> users = new ArrayList(response.body()
+                        .getResponse()
+                        .getItems());
+                MyAdapter adapter = new MyAdapter(MyListActivity.this,users);
+                recyclerView.setAdapter(adapter);
             }
             @Override
-            public void onFailure(Call<List<VKResponse>> call, Throwable t){
+            public void onFailure(Call<VKResponse> call, Throwable t){
                 Toast.makeText(MyListActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
             }
         });
-
-
 
 
     }

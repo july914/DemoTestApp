@@ -4,8 +4,8 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
+
 import com.example.yuliya.demotestapp.Models.VKResponse;
 /**
  * Created by yuliya on 21.08.17.
@@ -14,6 +14,6 @@ import com.example.yuliya.demotestapp.Models.VKResponse;
 public interface VkontakteApi {
 
     @GET("/method/friends.get")
-    Call<List<VKResponse>> getVKData(@Query("user_id") String resourceID, @Query("fields") String photo, @Query("access_token") String token, @Query("v") String version);
+    Call<VKResponse> VkontakteApi(@Query("user_id") String resourceID, @Query("fields") String photo, @Query("access_token") String token, @Query("v") String version);
 
 }

@@ -2,18 +2,15 @@ package com.example.yuliya.demotestapp.ui.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.yuliya.demotestapp.Models.UserModel;
+import com.example.yuliya.demotestapp.Models.VKResponse;
 import com.example.yuliya.demotestapp.R;
-import com.example.yuliya.demotestapp.Models.Cat;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,10 +18,10 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<UserModel> users;
+    private List<VKResponse.Item> users;
 
 
-    public MyAdapter(List<UserModel> users) {
+    public MyAdapter(MyListActivity myListActivity, List<VKResponse.Item> users) {
         this.users = users;
     }
 
@@ -37,12 +34,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
     @Override
     public void onBindViewHolder(final ViewHolder holder,int position) {
-        UserModel user = users.get(position);
+        VKResponse.Item id = users.get(position);
         Context context = holder.catImage.getContext();
-        holder.FirstName.setText(user.getFirstName());
-        holder.LastName.setText(user.getLastName());
-        Picasso.with(context).load(user.getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
-        holder.catImage.setTag(user.getPhoto100());
+        holder.FirstName.setText(VKResponse.Item.getFirstName());
+        holder.LastName.setText(VKResponse.Item.getLastName());
+        Picasso.with(context).load(VKResponse.Item.getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
+        holder.catImage.setTag(VKResponse.Item.getPhoto100());
         holder.itemView.setOnClickListener(new View.OnClickListener()
 
         {

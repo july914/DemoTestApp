@@ -3,6 +3,7 @@ package com.example.yuliya.demotestapp.Controllers;
 import android.app.Application;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import com.example.yuliya.demotestapp.Interfaces.VkontakteApi;
@@ -29,6 +30,9 @@ public class VKController extends Application{
         vkontakteApi = retrofit.create(VkontakteApi.class);
     }
     public static VkontakteApi getVKApi(){
+
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         return vkontakteApi;
     }
 }
