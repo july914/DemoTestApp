@@ -1,6 +1,8 @@
 package com.example.yuliya.demotestapp.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -41,7 +43,6 @@ public class MyListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-
     @Override
         protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -53,6 +54,8 @@ public class MyListActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        String userid = "38593660";
+        userid = getIntent().getStringExtra("User ID");
 
 
         /*try{
@@ -64,18 +67,25 @@ public class MyListActivity extends AppCompatActivity {
 
             VKController
                     .getVKApi()
-                    .VkontakteApi("38593660","photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68")
+                    .VkontakteApi(userid,"photo_100", "91b4df6991b4df6991b4df696e91e9260d991b491b4df69c8299d068e3ece0a09571e0a", "5.68")
                     .enqueue(new Callback<VKResponse>(){
             @Override
             public void onResponse(Call<VKResponse> call, Response<VKResponse> response){
-                ArrayList<VKResponse.Item> users = new ArrayList(response.body()
-                        .getResponse()
-                        .getItems());
-                MyAdapter adapter = new MyAdapter(MyListActivity.this,users);
-                recyclerView.setAdapter(adapter);
+                if (response.code() ==200) {
+                    ArrayList<VKResponse.Item> users = new ArrayList(response.body()
+                            .getResponse()
+                            .getItems());
+                    MyAdapter adapter = new MyAdapter(MyListActivity.this, users);
+                    recyclerView.setAdapter(adapter);
+                } else if (response.code() == 404){
+                    Toast.makeText(MyListActivity.this, "Incorrect User ID", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MyListActivity.this, "Unknown error", Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onFailure(Call<VKResponse> call, Throwable t){
+                //Retrofit errors
                 Toast.makeText(MyListActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
             }
         });

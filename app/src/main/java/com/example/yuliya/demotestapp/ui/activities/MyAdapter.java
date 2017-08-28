@@ -36,10 +36,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder,int position) {
         VKResponse.Item id = users.get(position);
         Context context = holder.catImage.getContext();
-        holder.FirstName.setText(VKResponse.Item.getFirstName());
-        holder.LastName.setText(VKResponse.Item.getLastName());
-        Picasso.with(context).load(VKResponse.Item.getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
-        holder.catImage.setTag(VKResponse.Item.getPhoto100());
+        holder.FirstName.setText(users.get(position).getFirstName());
+        holder.LastName.setText(users.get(position).getLastName());
+        Picasso.with(context).load(users.get(position).getPhoto100()).fit().error(android.R.drawable.stat_notify_error).into(holder.catImage);
+        holder.catImage.setTag(users.get(position).getPhoto100());
         holder.itemView.setOnClickListener(new View.OnClickListener()
 
         {

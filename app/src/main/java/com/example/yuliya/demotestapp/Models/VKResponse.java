@@ -14,9 +14,9 @@ public class VKResponse {
 
     @SerializedName("response")
     @Expose
-    private static Response response;
+    private Response response;
 
-    public static Response getResponse() {
+    public Response getResponse() {
         return response;
     }
 
@@ -52,20 +52,20 @@ public class VKResponse {
 
     }
 
-    public static class Item {
+    public class Item {
 
         @SerializedName("id")
         @Expose
         private int id;
         @SerializedName("first_name")
         @Expose
-        private static String firstName;
+        private String firstName;
         @SerializedName("last_name")
         @Expose
-        private static String lastName;
+        private String lastName;
         @SerializedName("photo_100")
         @Expose
-        private static String photo100;
+        private String photo100;
         @SerializedName("hidden")
         @Expose
         private int hidden;
@@ -81,7 +81,7 @@ public class VKResponse {
             this.id = id;
         }
 
-        public static String getFirstName() {
+        public String getFirstName() {
             return firstName;
         }
 
@@ -89,7 +89,7 @@ public class VKResponse {
             this.firstName = firstName;
         }
 
-        public static String getLastName() {
+        public String getLastName() {
             return lastName;
         }
 
@@ -97,7 +97,7 @@ public class VKResponse {
             this.lastName = lastName;
         }
 
-        public static String getPhoto100() {
+        public String getPhoto100() {
             return photo100;
         }
 
