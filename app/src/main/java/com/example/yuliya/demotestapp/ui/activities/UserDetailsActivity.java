@@ -13,7 +13,6 @@ import com.example.yuliya.demotestapp.R;
 import com.squareup.picasso.Picasso;
 
 public class UserDetailsActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,5 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         ImageView catImageView = (ImageView)findViewById(R.id.imageView);
         Picasso.with(this).load(catphoto).fit().into(catImageView);
-
     }
-
 }

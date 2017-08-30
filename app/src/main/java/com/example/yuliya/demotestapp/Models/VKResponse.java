@@ -63,9 +63,15 @@ public class VKResponse {
         @SerializedName("last_name")
         @Expose
         private String lastName;
+        @SerializedName("bdate")
+        @Expose
+        private String bdate;
         @SerializedName("photo_100")
         @Expose
         private String photo100;
+        @SerializedName("photo_max")
+        @Expose
+        private String photomax;
         @SerializedName("hidden")
         @Expose
         private int hidden;
@@ -101,8 +107,11 @@ public class VKResponse {
             return photo100;
         }
 
-        public void setPhoto100(String photo100) {
-            this.photo100 = photo100;
+        public void setPhotomax(String photomax) {
+            this.photomax = photomax;
+        }
+        public String getPhotomax(){
+            return photomax;
         }
 
     }

@@ -33,8 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return new ViewHolder(v);
     }
     @Override
-    public void onBindViewHolder(final ViewHolder holder,int position) {
-        VKResponse.Item id = users.get(position);
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         Context context = holder.catImage.getContext();
         holder.FirstName.setText(users.get(position).getFirstName());
         holder.LastName.setText(users.get(position).getLastName());
@@ -48,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 final Intent intent = new Intent(v.getContext(), UserDetailsActivity.class);
                 intent.putExtra("Cat Name", holder.FirstName.getText().toString());
                 intent.putExtra("Cat Number", holder.LastName.getText().toString());
-                intent.putExtra("Cat Photo", String.valueOf(holder.catImage.getTag()).toString());
+                intent.putExtra("Cat Photo", users.get(position).getPhotomax().toString());
                 v.getContext().startActivity(intent);
             }
         });

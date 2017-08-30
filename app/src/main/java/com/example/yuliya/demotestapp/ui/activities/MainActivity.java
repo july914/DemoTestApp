@@ -16,14 +16,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity{
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void onSearchButtonClick(View view) {
@@ -34,11 +30,10 @@ public class MainActivity extends AppCompatActivity{
         intent.putExtra("User ID", userEditText.getText().toString());
         intent.putExtra("Depth", depthEditText.getText().toString());
         startActivity(intent);
-
     }
 
     public void onJokeButtonClick(View view) {
-Intent newintent = new Intent(MainActivity.this, NewListActivity.class);
+        Intent newintent = new Intent(MainActivity.this, NewListActivity.class);
         startActivity(newintent);
     }
 }

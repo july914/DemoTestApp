@@ -12,8 +12,6 @@ import com.example.yuliya.demotestapp.Models.VKResponse;
  */
 
 public interface VkontakteApi {
-
     @GET("/method/friends.get")
-    Call<VKResponse> VkontakteApi(@Query("user_id") String resourceID, @Query("fields") String photo, @Query("access_token") String token, @Query("v") String version);
-
+    Call<VKResponse> VkontakteApi(@Query("user_id") String resourceID, @Query("fields") String photo, @Query("access_token") String token, @Query("v") String version,@Query("lang") String language);
 }
