@@ -32,8 +32,4 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void onJokeButtonClick(View view) {
-        Intent newintent = new Intent(MainActivity.this, NewListActivity.class);
-        startActivity(newintent);
-    }
 }
